@@ -9,19 +9,30 @@
     --red: rgb(238, 62, 62);
   }
 
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
     background-color: var(--white);
     transition: background-color 0.5s;
+    margin: 0;
+
   }
-  
+section{
+  min-height: 60vh;
+}
+.logo{
+  height: 30px;
+}
   .topnav {
     overflow: hidden;
     background-color: var(--white);
     position: fixed;
     top:0;
     width: 100%;
+    z-index: 1;
   }
   
   .topnav a {
@@ -41,18 +52,19 @@ body {
   }
 
   
-  /* .topnav a.active {
+  .topnav a.selected{
     background-color: #04AA6D;
     color: white;
   }
-   */
-  /* .topnav .icon {
-    display: none;
-  } */
+
+  .topnav a.selected:hover{
+    background-color: #04AA6D;
+    color: white;
+  }
 
   .topnav a.split {
     float: left;
-    background-color: white;
+    background-color: var(--white);
     color: var(--black);
     margin-left: 20px;
   }
@@ -79,6 +91,17 @@ body {
     transition: 0.3s;
   }
   
+
+  .sidenav a.selected {
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .sidenav a.selected:hover {
+    background-color: #04AA6D;
+    color: white;
+  }
+
   .sidenav a:hover {
     background-color: var(--lightgray);
   }
@@ -154,12 +177,53 @@ body {
   
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
-    background-position: center;
+    background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
   }
 
+  .yt-container{
+    text-align: center;
+  }
+  .yt-video{
+    width:560px; 
+    height:385px;
+    margin-bottom: 10px;
+  }
+  .gg-form{
+    width:100%;
+    height:500px;
+    margin-bottom: 10px;
+  }
 
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .column {
+    float: left;
+    width: 50%;
+    padding: 5px;
+  }
+
+
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
 
 
   * {box-sizing: border-box}
@@ -259,7 +323,7 @@ img {vertical-align: middle;}
       top: 0;
     }
     .topnav a.split {
-        margin-left: 30px;
+        margin-left: 60px;
     }
     .menu-btn {
     float: inline-start;
@@ -295,8 +359,13 @@ img {vertical-align: middle;}
         background-size: auto;
       }
 
+      .column {
+        width: 100%;
+      }
+
       .yt-video{
-        width:360px; height:285px
+        width:360px; 
+        height:285px;
       }
 
   }
