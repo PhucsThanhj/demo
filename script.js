@@ -35,6 +35,9 @@ overlay.addEventListener('click', () => {
       return;
     }
   });
+window.addEventListener('resize', function(event) {
+  document.getElementById("overlay").style.display ="none";
+}, true)
 
 
 function myFunction(x) {
@@ -85,8 +88,29 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
+let sections = document.querySelectorAll('section')
+let navItems = document.querySelectorAll('.topnav a')
+let navItems2 = document.querySelectorAll('.sidenav a')
 
 
+window.onscroll = () => {
+  sections.forEach(sec => {
+    let top = window.scrollY;
+    let offset = sec.offsetTop - 250;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute('id');
 
+    console.log(id);
 
-
+    if(top >= offset && top < offset + height) {
+      navItems.forEach(item => {
+        item.classList.remove('selected');
+        document.querySelector('.topnav a[href*=' + id + ']').classList.add('selected');
+      });
+      navItems2.forEach(item2 => {
+        item2.classList.remove('selected');
+        document.querySelector('.sidenav a[href*=' + id + ']').classList.add('selected');
+      });
+    }
+  });
+};
