@@ -29,22 +29,20 @@ overlay.addEventListener('click', () => {
       menuBtn.classList.remove('open');
       menuOpen = false;
       document.getElementById("mySidenav").style.width = "0px";
-      document.body.style.backgroundColor = "white";
       document.getElementById("navbar").style.visibility ="visible";
       document.getElementById("overlay").style.display ="none";
       return;
     }
   });
-window.addEventListener('resize', function(event) {
-  document.getElementById("overlay").style.display ="none";
-}, true)
-
 
 function myFunction(x) {
     if (!x.matches) { // If media query matches
       document.getElementById("mySidenav").style.width = "0";
       menuBtn.classList.remove('open');
       menuOpen = false;
+      document.getElementById("overlay").style.display ="none";
+      document.getElementById("navbar").style.visibility ="visible";
+      return;
     }
   }
   
@@ -99,8 +97,6 @@ window.onscroll = () => {
     let offset = sec.offsetTop - 250;
     let height = sec.offsetHeight;
     let id = sec.getAttribute('id');
-
-    console.log(id);
 
     if(top >= offset && top < offset + height) {
       navItems.forEach(item => {
